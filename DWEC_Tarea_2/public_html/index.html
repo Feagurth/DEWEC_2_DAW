@@ -1,0 +1,158 @@
+<!--
+/
+ Copyright (C) 2014 Luis Cabrerizo Gómez
+ 
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Tarea 2</title>
+    </head>
+    <body>        
+        <script type="text/javascript">
+
+            // Comenzamos creando un encabezamiento para la primera actividad
+            document.write("<h3>Actividad 1</h3>");
+
+            // Creamos un encabezado para la tabla de multiplicación del 7
+            document.write("<b>Tabla multiplicación del 7</b>");
+            document.write("<br />");
+
+            // Realizamos un bucle for que iterará desde el valor 0 hasta el 10
+            for (var i = 0; i < 11; i++)
+            {
+                // Escribimos el resultado de la operación
+                document.write("7 x " + i + " = " + 7 * i);
+                document.write("<br />");
+            }
+
+            // Creamos un encabezado para la tabla de suma del 8
+            document.write("<br />");
+            document.write("<b>Tabla suma del 8</b>");
+            document.write("<br />");
+
+            // Inicializamos una variable contador para controlar el bucle
+            var i = 0;
+
+            // Realizamos un bucle while que iterará desde el valor 0 hasta el 10
+            while (i < 11)
+            {
+                // Escribimos el resultado de la operación
+                document.write("8 + " + i + " = " + (8 + i));
+                document.write("<br />");
+
+                // Incrementamos el contador
+                i = i + 1;
+            }
+
+            // Creamos un encabezado para la tabla de división del 9
+            document.write("<br />");
+            document.write("<b>Tabla de división del 9</b>");
+            document.write("<br />");
+
+            // Inicializamos la variable de control de bucles
+            i = 1;
+
+            // Realizamos un bucle do while que iterará desde el valor 1 hasta 
+            // el 10
+            do
+            {
+                // Escribimos el resultado de la operación teniendo cuidado de
+                // modificar los valores para mostrar el resultado correcto de
+                // la table, puesto que se muestra distinta a las tablas
+                // usuales
+                document.write((9 * 1) + " / " + i + " = " + ((9 * i) / i));
+                document.write("<br />");
+
+                // Incrementamos el contador
+                i = i + 1;
+            } while (i < 11);
+
+
+            // Comenzamos creando un encabezamiento para la segunda actividad
+            document.write("<h3>Actividad 2</h3>");
+
+            // Creamos una variable contador que se encargará de calcular
+            // cuantas operaciones de multiplicación o división se podrán
+            // llevar a cabo con el multiplicador o divisor correspondiente
+            var contador = 0;
+
+            // Dividimos el multiplicador o divisor correspondiente entre dos de 
+            // forma sucesiva hasta que el resultado sea 1. El número de 
+            // divisiones contabilizadas por el contador será el número de bits 
+            // que habrá que desplazar a derecha o izquierda para realizar 
+            // una multiplicación o una división por citado valor
+            for (i = 8; i > 1; i = i / 2)
+            {
+                // Aumentamos el contador
+                contador++;
+            }
+
+            // Escribimos el resultado de mover a la derecha los bits indicados
+            // por el contador pare realizar la división
+            document.write("125 / 8 = " + (125 >> contador));
+            document.write("<br />");
+
+            // Reiniciamos el contador
+            contador = 0;
+
+            // Iteramos nuevamente igual que el proceso anterior para calcular 
+            // los bits a mover en la siguiente operación
+            for (i = 4; i > 1; i = i / 2)
+            {
+                // Incrementamos el contador
+                contador++;
+            }
+
+            // Escribimos el resultado de mover a la izquierda los bits indicados
+            // por el contador pare realizar la multiplicación
+            document.write("40 * 4 = " + (40 << contador));
+            document.write("<br />");
+
+            // Reiniciamos el contador
+            contador = 0;
+
+            // Iteramos nuevamente igual que el proceso anterior para calcular 
+            // los bits a mover en la siguiente operación
+            for (i = 2; i > 1; i = i / 2)
+            {
+                // Incrementamos el contador
+                contador++;
+            }
+
+            // Escribimos el resultado de mover a la derecha los bits indicados
+            // por el contador pare realizar la división
+            document.write("25 / 2 = " + (25 >> contador));
+            document.write("<br />");
+
+            // Reiniciamos el contador
+            contador = 0;
+
+            // Iteramos nuevamente igual que el proceso anterior para calcular 
+            // los bits a mover en la siguiente operación
+            for (i = 16; i > 1; i = i / 2)
+            {
+                // Incrementamos el contador
+                contador++;
+            }
+
+            // Escribimos el resultado de mover a la izquierda los bits indicados
+            // por el contador pare realizar la multiplicación
+            document.write("10 * 16 = " + (10 << contador));
+            document.write("<br />");
+        </script>
+    </body>
+</html>
