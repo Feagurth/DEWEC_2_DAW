@@ -1,0 +1,298 @@
+<!--
+/
+ Copyright (C) 2014 Luis Cabrerizo Gómez
+ 
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>DWEC02_Tarea1pres</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            /*
+             * Parte 1
+             */
+
+            // Creamos una variable booleana de control que nos permita
+            // controlar cuando se ha introducido un número de 4 cifras
+            var control = false;
+
+            // Definimos una variable para almacenar la contraseña de la caja
+            // de seguridad
+            var pass = "1234";
+
+            // Definimos una variable para almacenar la contraseña introducida
+            // por el usuario
+            var userPass = "";
+
+            // Definimos una variable para almacenar el mensaje de salida para
+            // el usuario
+            var mensaje = "";
+
+
+            // Realizamos un bucle while
+            do
+            {
+                // Pedimos al usuario que introduzca la contraseña
+                userPass = prompt("Introduzca la contraseña: ", "");
+
+                // Comprobamos si la contraseña introducida es un número
+                if (!isNaN(userPass))
+                {
+                    // Si lo es, comprobamos que su longitud es de 4 caracteres
+                    if (userPass.length === 4)
+                    {
+                        // Si lo es, cambiamos la variable de control a 
+                        // verdadero, permitiendo salir del bucle
+                        control = true;
+                    }
+                    else
+                    {
+                        // Si no es así, mostramos un mensaje al usuario
+                        alert("Introduzca un número de 4 cifras");
+                    }
+                }
+                else
+                {
+                    // Si no es así, mostramos un mensaje al usuario
+                    alert("Introduzca un número de 4 cifras");
+                }
+
+                // Verificamos la variable de control antes de salir del bucle
+            } while (control === false);
+
+            // Verificamos si la contraseña del sistema y la del usuario es la 
+            // misma
+            if (userPass === pass)
+            {
+                // Creamos un mensaje de combinación correcta
+                mensaje = "La caja fuerte se ha abierto satisfactoriamente";
+            }
+            else
+            {
+                // Creamos un mensaje de combinación erronea
+                mensaje = "Lo siento, esa no es la combinación";
+            }
+
+            // Mostramos el mensaje al usuario en una ventana emergente
+            // y volcamos en pantalla el resultado de la operación
+            alert(mensaje);
+            document.write("<b>Parte 1</b>");
+            document.write("<br />");
+            document.write("Contraseña de la caja fuerte: " + pass);
+            document.write("<br />");
+            document.write("Contraseña del usuario: " + userPass);
+            document.write("<br />");
+            document.write("Mensaje: " + mensaje);
+            document.write("<br />");
+            document.write("<br />");
+
+
+            /*
+             * Parte 2
+             */
+
+            // Creamos una variable para alamcenar el número de intentos de 
+            // apertura            
+            var intentos = 0;
+
+            // Creamos una variable de salida para validar que se ha introducido
+            // la contraseña correcta.
+            var salida = false;
+
+            // Reinicializamos las variables usadas en el caso anterior
+            control = false;
+            mensaje = "";
+            userPass = "";
+
+            // Asignamos una nueva contraseña
+            pass = "1478";
+
+            // Realizamos un primer bucle do while que se encargará de controlar
+            // que o bien se ha introducido la contraseña correcta o que se han 
+            // agotado los intentos de adivinarlos
+            do
+            {
+                // Reiniciamos el valor de la variable de control para una
+                // nueva verificación
+                control = false;
+
+
+                // Realizamos otro bucle do while para verificar que la 
+                // contraseña introducida es un número de 4 cifras
+                do
+                {
+                    // Pedimos al usuario la contraseña
+                    userPass = prompt("Introduzca la contraseña: ", "");
+
+                    // Verificams si es un número
+                    if (!isNaN(userPass))
+                    {
+                        // Si es un número comprobamos su longitud
+                        if (userPass.length === 4)
+                        {
+                            // Si la longitud es correcta, modificamos el valor 
+                            // de la variable de control
+                            control = true;
+                        }
+                        else
+                        {
+                            // Si no es asi, mostramos un mensaje al usuario
+                            alert("Introduzca un número de 4 cifras");
+                        }
+                    }
+                    else
+                    {
+                        // Si no es asi, mostramos un mensaje al usuario
+                        alert("Introduzca un número de 4 cifras");
+                    }
+
+                    // Verificamos la variable de control antes de salir del bucle
+                } while (control === false);
+
+                // Puesto que el usuario ha realizaod un intento válido, 
+                // aumentamos la variable que los controla
+                intentos++;
+
+                // Comprobamos si la contraseña del usuario y la del sistema 
+                // coinciden
+                if (userPass === pass)
+                {
+                    // De ser así almacenamos el mensaje y cambiamos el valor 
+                    // de la variable de control
+                    mensaje = "La caja fuerte se ha abierto satisfactoriamente";
+                    salida = true;
+
+                    // Mostramos el mensaje al usuario
+                    alert(mensaje);
+                }
+                else
+                {
+                    // De no ser así, almacenamos el mensaje y lo mostramos al usuario.
+                    mensaje = "Lo siento, esa no es la combinación.";
+                    alert(mensaje + "\nQuedan " + (4 - intentos) + " disponibles");
+                }
+                // Comprobamos que el número de intentos es superior al mínimo 
+                // o si se ha acertado la combinación antes de salir del bucle
+            } while (intentos < 4 && !salida);
+
+            // Volcamos en pantalla el resultado de la operación            
+            document.write("<b>Parte 2</b>");
+            document.write("<br />");
+            document.write("Contraseña de la caja fuerte: " + pass);
+            document.write("<br />");
+            document.write("Contraseña del usuario: " + userPass);
+            document.write("<br />");
+            document.write("Mensaje: " + mensaje);
+            document.write("<br />");
+            document.write("Itentos: " + intentos);
+            document.write("<br />");
+            document.write("<br />");
+
+            /*
+             * Parte 3
+             */
+
+            // Creamos un array para almacenar los números de tamaño 10
+            var numeros = new Array(10);
+
+            // Creamos una nueva variable para almacenar los números introducidos
+            // por el usuario y contadores para almcenar los resultados
+            var valor;
+            var numPositivos = 0;
+            var numNegativos = 0;
+            var numCeros = 0;
+
+            // Creamos un bucle for para iterar 10 veces en la petición de 
+            // números del usuario
+            for (var i = 0; i < 10; i++)
+            {
+                // Inicializamos la variable de control para una nueva 
+                // validación
+                control = false;
+
+                // Hacemos un bucle do while para comprobar que los valores 
+                // introducidos por el usuario son números enteros
+                do
+                {
+                    // Pedimos el valor al usuario
+                    valor = prompt("Introduzca el " + (i + 1) + "º número entero: ", "");
+
+                    // Verificamos si es un número
+                    if (!isNaN(valor) && (valor!=="" ))
+                    {
+                        // Si lo es, cambiamos el valor de la variable de 
+                        // control, permitiendo salir del bucle de validación
+                        control = true;
+                    }
+                    else
+                    {
+                        // Si no lo es, mostramos un mensaje de aviso al usuario
+                        alert("Introduzca un número entero");
+                    }
+
+                    // Varificamos la variable de control antes de salir del 
+                    // bucle
+                } while (control === false);
+
+                // Seguros de que el valor introducido es un número entero, lo 
+                // almacenamos en el array
+                numeros[i] = parseInt(valor);
+            }
+
+            // Realizamos un bucle para recorrer todo el array con los valores
+            // introducidos
+            for (var i = 0; i < numeros.length; i++)
+            {
+                // Comprobamos si el número es positivo
+                if (numeros[i] > 0)
+                {
+                    // Si es así, aumentamos el contador correspondiente
+                    numPositivos++;
+                }
+
+                // Comprobamos si el número es negativo
+                if (numeros[i] < 0)
+                {
+                    // Si es así, aumentamos el contador correspondiente
+                    numNegativos++;
+                }
+
+                // Comprobamos si el número es cero
+                if (numeros[i] === 0)
+                {
+                    // Si es así, aumentamos el contador correspondiente
+                    numCeros++;
+                }
+            }
+
+            // Finalmente, mostramos los resultados en pantalla
+            document.write("<b>Parte 3</b>");
+            document.write("<br />");
+            document.write("Numeros introducidos por el usuario: " + numeros.toString());
+            document.write("<br />");
+            document.write("Numeros positivos: " + numPositivos);
+            document.write("<br />");
+            document.write("Numeros negativos: " + numNegativos);
+            document.write("<br />");
+            document.write("Numeros nulos: " + numCeros);
+            document.write("<br />");
+            document.write("<br />");
+
+        </script>
+    </body></html>
