@@ -18,7 +18,7 @@
  */
 
 /**
- *  Método que suma dos números y muestra el resultado 
+ * Método que suma dos números y muestra el resultado 
  * @param {type} primerNumero Primer sumando
  * @param {type} segundoNumero Segundo sumando
  * @returns {undefined}
@@ -43,7 +43,7 @@ function suma_y_muestra(primerNumero, segundoNumero)
 }
 
 /**
- *  Método que resta dos números y muestra el resultado 
+ * Método que resta dos números y muestra el resultado 
  * @param {type} primerNumero Minuendo
  * @param {type} segundoNumero Sustraendo
  * @returns {undefined}
@@ -68,7 +68,7 @@ function resta_y_muestra(primerNumero, segundoNumero)
 }
 
 /**
- *  Método que multiplica dos números y muestra el resultado 
+ * Método que multiplica dos números y muestra el resultado 
  * @param {type} primerNumero Multiplicando
  * @param {type} segundoNumero Multiplicador
  * @returns {undefined}
@@ -93,7 +93,7 @@ function multiplica_y_muestra(primerNumero, segundoNumero)
 }
 
 /**
- *  Método que divide dos números y muestra el cociente
+ * Método que divide dos números y muestra el cociente
  * @param {type} primerNumero Dividendo
  * @param {type} segundoNumero Divisor
  * @returns {undefined}
@@ -101,7 +101,7 @@ function multiplica_y_muestra(primerNumero, segundoNumero)
 function divide_y_muestra(primerNumero, segundoNumero)
 {
     // Almacenamos el resultado en la variable creada
-    var resultado = primerNumero / segundoNumero;
+    var resultado = parseInt(primerNumero / segundoNumero);
 
     // Mostramos los resultados
     document.write("-----------División-------------");
@@ -118,7 +118,7 @@ function divide_y_muestra(primerNumero, segundoNumero)
 }
 
 /**
- *  Método que divide dos números y muestra el rest 
+ * Método que divide dos números y muestra el rest 
  * @param {type} primerNumero Dividendo
  * @param {type} segundoNumero Divisor
  * @returns {undefined}
@@ -148,7 +148,7 @@ function restodeladivision_y_muestra(primerNumero, segundoNumero)
  * @param {String} textoPeticion Texto a mostrar en la petición de datos
  * @returns {int} Valor introducido por el usuario
  */
-function peticionNumeroValidado(textoPeticion)
+function peticionValidacionNumero(textoPeticion)
 {
     // Declaración de variables
     var control = false;
@@ -177,7 +177,10 @@ function peticionNumeroValidado(textoPeticion)
     return parseInt(valor);
 }
 
-
+/**
+ * Método que muestra un menú y realiza las operaciones seleccionadas
+ * @returns {undefined}
+ */
 function menu()
 {
     // Declaración de las variables
@@ -192,7 +195,7 @@ function menu()
     {
         // Mostramos el menú y pedimos al usuario que seleccione un valor usando 
         // la función de petición de números validados
-        op = peticionNumeroValidado(" 1.- Suma \n 2.- Resta \n " +
+        op = peticionValidacionNumero(" 1.- Suma \n 2.- Resta \n " +
                 "3.- Multiplicación \n 4.- División \n 5.- Resto \n 6.- "
                 + "Salir \n Introduzca una opción: ");
 
@@ -201,8 +204,8 @@ function menu()
         {
             // Si lo es, pedimos dos numeros al usuario, ayudandonos por la 
             // función de petición de números validados
-            numero1 = peticionNumeroValidado("Introduzca el primer número");
-            numero2 = peticionNumeroValidado("Introduzca el segundo número");
+            numero1 = peticionValidacionNumero("Introduzca el primer número");
+            numero2 = peticionValidacionNumero("Introduzca el segundo número");
         }
 
         // Comprobamos la opción elegida por el usuaurio y llamamos a la función 
@@ -251,7 +254,7 @@ function menu()
 
 }
 
-
-// Llamamos al menú de operaciones
+// Programa principal
+// Llamamos al menú
 menu();
 
