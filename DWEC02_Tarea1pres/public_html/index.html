@@ -189,7 +189,7 @@
                 }
                 // Comprobamos que el número de intentos es superior al mínimo 
                 // o si se ha acertado la combinación antes de salir del bucle
-            } while (intentos < 4 && !salida);
+            } while ((intentos < 4) && (!salida));
 
             // Volcamos en pantalla el resultado de la operación            
             document.write("<b>Parte 2</b>");
@@ -234,7 +234,7 @@
                     valor = prompt("Introduzca el " + (i + 1) + "º número entero: ", "");
 
                     // Verificamos si es un número
-                    if (!isNaN(valor) && (valor!=="" ))
+                    if (!isNaN(valor) && (valor !== "" ))
                     {
                         // Si lo es, cambiamos el valor de la variable de 
                         // control, permitiendo salir del bucle de validación
