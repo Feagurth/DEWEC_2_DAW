@@ -24,7 +24,221 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </head>
     <body>
         <div>Tarea presencial UT2 martes 28 OCT</div>
-        <div>Ejercicio1: <script>document.write(ejercicio1());</script></div>
-        
+        <br />
+        <div>
+            <p>
+                <b>
+                    EJERCICIO 1: Crea un array llamado meses y almacena el nombre de los doce meses del año.<br/> 
+                    Después muestra por pantalla los doce nombres utilizando la función alert().<br/>                
+                </b>
+            </p>
+            <p>
+                <i>
+                    <br/>
+                    <script>
+                        document.write("Resultado: " + ejercicio1());
+                        alert(ejercicio1());
+                    </script>
+                </i>
+            </p>
+            <p>
+                <b>
+                    EJERCICIO 2: Dado el siguiente código (Cálculo de la letra del DNI):<br/><br/>
+                </b>
+            </p>
+            <p>
+                <b>
+                    <i>
+                        &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;<br/>
+                        &lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;<br/>
+                        &lt;head&gt;<br/>
+                        &lt;meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /&gt;<br/>
+                        &lt;title&gt;Ejercicio 2&lt;/title&gt;<br/>
+                        &lt;script type="text/javascript"&gt;<br/>
+                        var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];<br/><br/>
+                        var numero = prompt("Introduce tu número de DNI (sin la letra)");<br/>
+                        var letra = prompt("Introduce la letra de tu DNI (en mayúsculas)");<br/>
+                        letra = letra.toUpperCase();<br/><br/>
+                        if(numero &lt; 0 || numero &gt; 99999999) {<br/>
+                        alert("El número proporcionado no es válido");<br/>
+                        }<br/>
+                        else {<br/> 
+                        var letraCalculada = letras[numero % 23];<br/>
+                        if(letraCalculada != letra) {<br/>
+                        alert("La letra o el número proporcionados no son correctos");<br/>
+                        }<br/> 
+                        else {<br/> 
+                        alert("El número de DNI y su letra son correctos");<br/> 
+                        }<br/>
+                        }<br/><br/>
+                        &lt;/script&gt;<br/>
+                        &lt;/head&gt;<br/><br/>
+                        &lt;body&gt;<br/>
+                        &lt;p&gt;Esta página calcula la letra del DNI&lt;/p&gt;<br/>
+                        &lt;/body&gt;<br/>
+                        &lt;/html&gt;<br/>
+                    </i>
+                </b>
+            </p>
+            <p>
+                <span>Explica lo que hace las siguientes partes: </span>
+            </p>        
+            <ul>
+                <li>
+                    <strong>
+                        <span>APARTADO 1: </span>
+                    </strong>
+                </li>
+            </ul>
+            <p>
+                <span>
+                    var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T']; 
+                </span>
+            </p>
+            <p>
+                <i>
+                    En esa línea de código se crea un array con letras para poder calcular la letra del DNI introducido por el usuario.<br/>
+                    El orden en el que están introducidas las letras es arbitrario para que permita calcular la letra basada en el resto de la división del número del DNI entre 23
+                </i>
+            </p>
+            <ul>
+                <li>
+                    <strong>
+                        <span>APARTADO 2: </span>
+                    </strong>
+                </li>
+            </ul>            
+            <p>
+                <span>if(numero &lt; 0 || numero &gt; 99999999)</span>
+                <span>{ &lt; &lt; alert("El número proporcionado no es válido"); }</span>
+            </p>            
+            <p>
+                <i>
+                    Estas líneas de código comprueban que el número introducido por el usuario sea un número de DNI válido, esto es<br />
+                    que no sea menor de cero y que no sea mayor de 99999999. Números fuera de este rango de valores son valores inválidos<br />
+                    y si este fuese el caso, se mostraría un mensaje de error al usuario.
+                </i>
+            </p>
+            <ul>
+                <li>
+                    <strong>
+                        <span>APARTADO 3: </span>
+                    </strong>
+                </li>
+            </ul>     
+            <p>
+                <span>var letraCalculada = letras[numero % 23];&nbsp;</span>
+            </p>  
+            <p>
+                <i>
+                    Estas línea de código devuelve la letra correspondiente al DNI introducido calculando el resto de la división del DNI entre 23.<br />
+                    El resto se corresponderá con una posición en el array de letras, y el valor contenido en el array en esa posición será la letra<br />
+                    que le corresponde al DNI introducido, la cual se asigna a la variable letraCalculada.
+                </i>
+            </p>   
+            <p>
+                <b>
+                    EJERCICIO 3: Dado el siguiente código, analiza lo que hace y explica a que operación matemática pertenece.<br /><br />
+                </b>
+            </p>
+            <p>
+                <b>
+                    &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;<br/>
+                    &lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;<br/>
+                    &lt;head&gt;<br/>
+                    &lt;meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /&gt;<br/>
+                    &lt;title&gt;Ejercicio 3&lt;/title&gt;<br/><br/>
+                    &lt;script type="text/javascript"&gt;<br/>
+                    var numero = prompt("Introduce un número");<br/>
+                    var resultado = 1;<br/><br/>
+                    for(var i=1; i&lt;=numero; i++) {<br/>
+                    resultado *= i;<br/>
+                    }<br/>
+                    alert(resultado);<br/>
+                    &lt;/script&gt;<br/>
+                    &lt;/head&gt;<br/><br/>
+                    &lt;body&gt;<br/>
+                    &lt;/body&gt;<br/>
+                    &lt;/html&gt;
+                </b>
+            </p>                
+            <p>
+                <i>
+                    El código de arriba corresponda a la operación matemática de factorial.<br/>
+                    El factorial de un número se consigue multiplicando dicho número por todos<br/>
+                    los números anteriores a el hasta el 1.<br/>
+                    El código mostrado anteriormente pide un número al usuario y realiza un bucle<br/>
+                    desde 1 hasta el valor introducido y a cada iteración del bucle, se multiplica el <br/>
+                    valor actual del índice de iteración por el resultado acumulado de las multiplicaciones<br>
+                    anteriores.
+                </i>
+            </p>        
+            <p>
+                <b>
+                    EJERCICIO 4: Dado el siguiente código:<br/><br/>
+                </b>
+            </p>
+            <p>
+                <b>
+                    &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;<br/>
+                    &lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;<br/>
+                    &lt;head&gt;<br/>
+                    &lt;meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /&gt;<br/>
+                    &lt;title&gt;Ejercicio 4&lt;/title&gt;<br/><br/>
+                    &lt;script type="text/javascript"&gt;<br/>
+                    var numero = prompt("Introduce un número entero");<br/><br/>
+                    var resultado = parImpar(numero);<br/>
+                    alert("El número "+numero+" es "+resultado);<br/><br/>
+                    function parImpar(numero) {<br/> 
+                    if(numero % 2 == 0) {<br/>
+                    return "par";<br/> 
+                    }<br/>
+                    else {<br/> 
+                    return "impar";<br/>
+                    }<br/>
+                    }<br/>
+                    &lt;/script&gt;<br/>
+                    &lt;/head&gt;<br/><br/>
+                    &lt;body&gt;<br/>
+                    &lt;/body&gt;<br/>
+                    &lt;/html&gt;
+                </b>
+            </p>   
+            <p>
+                Piensa y reescribelo para calcular si es par o impar de otra forma
+            </p>
+            <p>
+                <i>
+                    Mi solución es la siguiente:<br/><br/>
+                    /**<br/>
+                    * Función para calcular si un número es par o impar mediante operaciones a <br/>
+                    * nivel de de bits<br/>
+                    * @param {type} numero Número a comprobar<br/>
+                    * @returns {String} par si el número es par, impar en caso contrario<br/>
+                    */<br/>
+                    function parImparAlternativo(numero) <br/>
+                    {<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;// Realizamos una operacion AND a nivel de bits entre en número y 1.<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;// Si el resultado es 0 es un número par, si es 1, es impar<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;// Ej 101 & 001 = 001 -> Resultado 1, número negativo<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;// Ej 110 & 001 = 000 -> Resultado 0, número positivo<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;if ((numero & 1) === 0) <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;{<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Si lo es, devolvemos la palabra par<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "par";<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;else <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;{<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Si no lo es, devolvemos la palabra impar<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "impar";<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+                    }<br/>
+                </i>             
+            </p>
+            <p>
+                <script>ejercicio4();</script>
+            </p>
+        </div>
+
     </body>
 </html>
