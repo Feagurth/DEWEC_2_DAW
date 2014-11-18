@@ -21,7 +21,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title> tarea Presencial 2 ut3 DWEC</title>
 
-
         <script type="text/javascript">
 
             /**
@@ -53,13 +52,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                 /**
                  * Añade el atributo name a cada uno de los párrafos de la 
                  * página anterior asignándole un nombre significativo 
-                 * (por ejemplo: <p name="parrafo1">Párrafo 1</p>, ...,
-                 * <p name="parrafo9">Párrafo 9</p>) y accede al párrafo 5 y 
+                 * (por ejemplo: <p id="parrafo1">Párrafo 1</p>, ...,
+                 * <p id="parrafo9">Párrafo 9</p>) y accede al párrafo 5 y 
                  * cambiale el color de fondo al color azul 
                  * (enlaces[i].style.backgroundColor = "red";)
                  */
 
+                // Seleccionamos el elemento a partir de su identificador
+                var parrafo = document.getElementById("parrafo5");
 
+                // Cambiamos el color de fondo al color azul
+                parrafo.style.backgroundColor = "blue";
 
             }
 
@@ -78,41 +81,39 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                  * "element.textContent" que puedes ver como se utiliza en el 
                  * siguiente enlace https://developer.mozilla.org/en-US/docs/Web/API/Node.textContent.
                  */
-                
+
                 // Recuperamos el elemento capa usando su id, y luego 
                 // recuperamos los elementos p dentro de la capa
                 var parrafos = document.getElementById("capa").getElementsByTagName("p");
-                
+
                 // Iteramos por todos los elementos que hemos localizado
-                for(var i=0; i< parrafos.length;i++)
+                for (var i = 0; i < parrafos.length; i++)
                 {
                     // Recuperamos un objeto p a cada iteración
                     var elemento = parrafos[i];
-                    
+
                     // Le modificamos el contenido del texto añadiendo 
                     // el resto del texto a mostrar
-                    elemento.textContent += " dentro de la capa";                    
+                    elemento.textContent += " dentro de la capa";
                 }
             }
-
         </script>
-
     </head>
 
     <body style="border: solid green 3px">
-        <p>Párrafo 1</p>
-        <p>Párrafo 2</p>
+        <p id="parrafo1">Párrafo 1</p>
+        <p id="parrafo2">Párrafo 2</p>
 
         <div id="capa" style="border: solid blue 3px">
-            <p>Párrafo 3</p>
-            <p>Párrafo 4</p>
-            <p>Párrafo 5</p>
-            <p>Párrafo 6</p>
-            <p>Párrafo 7</p>
+            <p id="parrafo3">Párrafo 3</p>
+            <p id="parrafo4">Párrafo 4</p>
+            <p id="parrafo5">Párrafo 5</p>
+            <p id="parrafo6">Párrafo 6</p>
+            <p id="parrafo7">Párrafo 7</p>
         </div>
 
-        <p>Párrafo 8</p>
-        <p>Párrafo 9</p>
+        <p id="parrafo8">Párrafo 8</p>
+        <p id="parrafo9">Párrafo 9</p>
         <div>
             <input type="button" value="Ejercicio 1" onclick="ejercicio1()">
             <input type="button" value="Ejercicio 2" onclick="ejercicio2()">
