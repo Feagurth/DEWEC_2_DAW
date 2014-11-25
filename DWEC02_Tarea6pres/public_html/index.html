@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--
+Copyright (C) 2014 Luis Cabrerizo Gómez
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<html>
+    <head>
+        <title>DWEC02_Tarea6pres</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="estilos.css">
+        <script type="text/javascript">
+
+
+            /**
+             * Función para generar la cabecera de la tabla
+             * @returns {undefined} Devuelve la cabecera de la tabla
+             */
+            function crearCabecera()
+            {
+                // Creamos un objeto cabecera y especificamos una etiqueta thead
+                var cabecera = document.createElement("thead");
+
+                // Creamos un objeto fila para contener los textos de la cabecera
+                var fila = document.createElement("tr");
+
+                // Creamos una columna y le asignamos un texto
+                var temporal = document.createElement("td");
+                temporal.appendChild(document.createTextNode("Id_Interprete"));
+
+                // A continuación le asignamos la columna a la fila
+                fila.appendChild(temporal);
+
+                // Creamos una columna y le asignamos un texto
+                temporal = document.createElement("td");
+                temporal.appendChild(document.createTextNode("Apellidos"));
+
+                // A continuación le asignamos la columna a la fila
+                fila.appendChild(temporal);
+
+                // Creamos una columna y le asignamos un texto
+                temporal = document.createElement("td");
+                temporal.appendChild(document.createTextNode("Nombre"));
+                
+                // A continuación le asignamos la columna a la fila
+                fila.appendChild(temporal);
+
+                // Creamos una columna y le asignamos un texto
+                temporal = document.createElement("td");
+                temporal.appendChild(document.createTextNode("Nacionalidad"));
+
+                // A continuación le asignamos la columna a la fila
+                fila.appendChild(temporal);
+
+                // Asignamos la fila con todas las columnas con los datos de 
+                // la cabecera
+                cabecera.appendChild(fila);
+
+                // Devolvemos la cabecera
+                return cabecera;
+            }
+
+
+            /**
+             * Función para crear una tabla a partir de los datos introducidos 
+             * por un array
+             * @param {type} contenido El array con los datos a mostrar
+             * @returns {undefined} null
+             */
+            function crearTabla(contenido)
+            {
+
+                // Creamos un elemento tabla
+                var tabla = document.createElement("table");
+              
+                // Le añadimos la cabecera creada a partir de la función 
+                // crear cabecera
+                tabla.appendChild(crearCabecera());
+
+                // Creamos un bucle para recorrer los valores externos del 
+                // array contenido que se pasa como parámetro a la función
+                for (var i = 0; i < contenido.length; i++)
+                {
+                    // Creamos un objeto fila
+                    var fila = document.createElement("tr");
+
+                    // Creamos otro bucle para recorrer los valores internos 
+                    // del array contenido que se pasa como parámetro a la 
+                    // función
+                    for (var j = 0; j < contenido[i].length; j++)
+                    {
+                        // Creamos una columna por cada iteración del bucle
+                        var columna = document.createElement("td");
+
+                        // Añadimos a la columna un nodo de texto con el 
+                        // contenido del vector en la iteración
+                        columna.appendChild(document.createTextNode(contenido[i][j]));
+
+                        // Añadimos la columa generada a la fila
+                        fila.appendChild(columna);
+                    }
+
+                    // Cuando la fila tenga todas las columnas necesarias la 
+                    // añadimos a la tabla 
+                    tabla.appendChild(fila);
+                }
+
+
+                // Localicamos el objeto div donde vamos a situar la tabla y 
+                // lo volcamos a un objeto
+                var marca = document.getElementById("marca");
+
+                // Añadimos al objeto la tabla generada
+                marca.appendChild(tabla);
+            }
+
+        </script>
+    </head>
+    <body>
+        <div id="marca">
+        </div>
+        <br>
+        <div>
+            <!-- Creamos un objeto boton que llamará a la función crear tabla 
+            pasandole como parámetro un array multidimensional con los valores 
+            a mostrar -->
+            <input type="button" value="Ejercicio" onclick="crearTabla([
+                        ['1', 'Ford', 'Harrison', 'Estadounidense'],
+                        ['2', 'Mortensen', 'Vigo', 'Estadounidense'],
+                        ['3', ' Pacino', 'Al', 'Estadounidense'],
+                        ['4', 'Freeman', 'Morgan', 'Estadounidense'],
+                        ['5', 'Crowe', 'Russell', 'Australiano'],
+                        ['6', 'Reeves', 'Keanu', 'Estadounidense'],
+                        ['7', 'Thurman', 'Uma', 'Estadounidense'],
+                        ['8', 'Swank', 'Hilary', 'Estadounidense'],
+                        ['9', 'Barden', 'Javier', 'Español'],
+                        ['10', 'Tyler', 'Liv', 'Estadounidense']
+                    ])" >
+        </div>
+    </body>
+</html>
