@@ -151,8 +151,8 @@ function parImparAlternativo(numero) {
 
     // Realizamos una operacion AND a nivel de bits entre en número y 1.
     // Si el resultado es 0 es un número par, si es 1, es impar
-    // Ej 101 & 001 = 001 -> Resultado 1, número negativo
-    // Ej 110 & 001 = 000 -> Resultado 0, número positivo
+    // Ej 101 & 001 = 001 -> Resultado 1, número impar
+    // Ej 110 & 001 = 000 -> Resultado 0, número par
     if ((numero & 1) === 0) {
         // Si lo es, devolvemos la palabra par
         return "par";
