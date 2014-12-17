@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!--
+Copyright (C) 2014 Luis Cabrerizo Gomez
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<html>
+    <head>
+        <title>DWEC_Examen_1</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            /***
+             * Función para pedir un número al usuario comprendido entre un 
+             * límite superior y un límite inferior
+             * @param {type} limiteInf Valor mínimo que el usuario puede introducir
+             * @param {type} limiteSup Valor máximo que el usuario puede introducir
+             * @param {type} texto Texto que se mostrará al usuario durante la petición de datos
+             * @returns Un entero con el valor introducido por el usuario
+             */
+            function pedirNumero(limiteInf, limiteSup, texto)
+            {
+                // Declaramos una variable de control para gestionar la 
+                // repetición de la petición de datos
+                var salida;
+
+                // Iniciamos un bucle do-while para pedir la información de 
+                // forma reiterada en su interior
+                do
+                {
+                    // Usamos el método prompt para pedir datos al usuario 
+                    // y los almacenamos en una variable
+                    var info = window.prompt(texto + " [" + limiteInf + "-" + 
+                            limiteSup + "]");
+
+                    // Verificamos si el valor introducido por el usuario es 
+                    // un número
+                    if (isNaN(info))
+                    {
+                        // Si no lo es, asignamos false a la variable de 
+                        // control del bucle
+                        salida = false;
+                    }
+                    else
+                    {
+                        // Si es un número, comprobamos que no sea mayor que el 
+                        // limite supeior, ni menor que el limite inferior
+                        if (info > limiteSup || info < limiteInf)
+                        {
+                            // Si alguna de las condiciones no se cumple, 
+                            // asignamos false a la variable de control del bucle
+                            salida = false;
+                        }
+                        else
+                        {
+                            // Si todas las condiciones se cumplen, asignamos 
+                            // true a la variable de control del bucle
+                            salida = true;
+                        }
+                    }
+
+                    // Comprobamos si el valor introducido por el usuario no 
+                    // es válido
+                    if (!salida)
+                    {
+                        // Si no lo es, usamos el metodo alert para mostrarle 
+                        // al usuario un mensaje de alerta
+                        window.alert("Por favor, introduzca un número entre " + limiteInf + " y " + limiteSup);
+                    }
+                    
+                    // Comprobamos si el valor introducido por el usuario es 
+                    // válido, si no lo es, repetimos el bucle
+                } while (!salida);
+
+                // Si todo es correcto, devolvemos el valor introducido por el 
+                // usuario como un entero
+                return parseInt(info);
+
+            }
+
+            // Usamos la función pedirNumero para pedir al usuario que 
+            // introduzca dos valores comprendidos entre 1 y 100 y los 
+            // almacenamos en variables
+            var numero1 = pedirNumero(1, 100, "Introduzca el primer número");
+            var numero2 = pedirNumero(1, 100, "Introduzca el segundo número");
+
+            // Usamos el método document.write para crear un par de elementos 
+            // <p> de html para mostrar el resultado de la suma y la 
+            // multiplicación de los dos números introducidos
+            window.document.write("<p>" + numero1 + " + " + numero2 + " = " + (numero1 + numero2) + "</p>");
+            window.document.write("<p>" + numero1 + " * " + numero2 + " = " + (numero1 * numero2) + "</p>");
+            
+            
+            // Ejercicio 2: Explica lo que realiza el siguiente código
+            //var hoyFecha = new Date();
+            //var dias = ["Domingo","Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
+            //var indice = hoyFecha.getDay();
+            //var hoyDia = dias[indice];
+            
+            document.write("Estamos a " + hoyDia);
+
+        </script>
+        
+    </body>
+</html>
