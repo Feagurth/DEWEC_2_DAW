@@ -212,11 +212,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
             // Nota.- El código funcina perfectamente en Internet Explorer, 
             // pero no funciona de la misma forma en Firefox y Chrome donde las 
             // ventanas generadas si son redimensionales
-            //var popUp = window.open("", "Ejemplo de ventana nueva", "width=1024,height=768,resizable=0");
-
+            var popUp = window.open("", "Ejemplo de ventana nueva", "width=1024,height=768,resizable=no");
+            
             // Llamamos a la función creada pasándole la ventana emergente que 
             // acabamos de crear
-            //datosNavegador(popUp);
+            datosNavegador(popUp);
 
             // En la ventana principal escribimos la cabecera
             window.document.write("<h1>TAREA DWEC03</H1><HR />");
