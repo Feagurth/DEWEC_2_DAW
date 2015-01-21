@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<!--
+Copyright (C) 2015 Luis Cabrerizo Gómez
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<html>
+    <head>
+        <title>DWEC04_Tarea1pres</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+
+            /**
+             * Functión que nos permite crear una representación textual de un array
+             * @param {type} vector Array a representar
+             * @param {type} nombrearray Nombre del array
+             * @returns {actividad4.arrayacadena.texto|String} Texto que representa un array
+             */
+            function arrayacadena(vector, nombrearray)
+            {
+                // Creamos una variable para almacenar la representación que 
+                // haremos del array creado
+                var texto = "['";
+
+                for (valor in vector)
+                {
+                    // Concatenamos los valores del array añadiendo los 
+                    // caracteres necesarios
+                    texto += vector[valor] + "', '";
+                }
+
+                // Quitamos los tres últimos caracteres (una comilla simple, 
+                // un espacio en blanco y una coma)
+                texto = texto.substring(0, texto.length - 3);
+
+                // Comprobamos que el texto no está vacío
+                if (texto !== "")
+                {
+                    // Concatenamos el nombre del array y la cadena formada
+                    texto = nombrearray + " = " + texto + "]";
+                }
+                else
+                {
+                    // Asginamos el nombre del array con unos corchetes vacios
+                    texto = nombrearray + " = []";
+                }
+
+                // Devolvemos la cadena de texto creada
+                return texto;
+
+            }
+
+            /**
+             * Actividad 1: Crea un script donde definas un array mixto 
+             * (objeto literal) llamado "persona" que almacene tu nombre, 
+             * apellido1, apellido2, edad, sexo y email, como en el ejemplo 
+             * anterior (persona["nombre"]="Paco"). Después, recorre y muestra 
+             * por pantalla el contenido del array.
+             * @returns {undefined}
+             */
+            function actividad1() {
+
+                // Definimos un array mixto usando la nomenclatura JSON
+
+                var persona = {
+                    "nombre": "Luis",
+                    "apellido1": "Cabrerizo",
+                    "apellido2": "Gómez",
+                    "edad": "37",
+                    "sexo": "H",
+                    "email": "aqklynvi@sharklasers.com"
+                };
+
+                //  Mostramos en pantalla el contenido del array
+                document.write("Nombre: " + persona.nombre + "<br />");
+                document.write("Apellido1: " + persona.apellido1 + "<br />");
+                document.write("Apellido2: " + persona.apellido2 + "<br />");
+                document.write("Edad: " + persona.edad + "<br />");
+                document.write("Sexo: " + persona.sexo + "<br />");
+                document.write("Email: " + persona.email + "<br />");
+            }
+
+
+            /**
+             * Actividad 2: Vuelve a realizar la actividad 1 utilizando el 
+             * bucle "for - in" para mostrar los datos del array mixto.
+             * @returns {undefined}
+             */
+            function actividad2()
+            {
+                // Definimos un array mixto usando la nomenclatura JSON
+                var persona = {
+                    "nombre": "Luis",
+                    "apellido1": "Cabrerizo",
+                    "apellido2": "Gómez",
+                    "edad": "37",
+                    "sexo": "H",
+                    "email": "aqklynvi@sharklasers.com"
+                };
+
+                // Recorremos el array que hemos creado recuperando los códigos 
+                // que contienen
+                for (var dato in persona)
+                {
+                    // Mostramos los datos por pantalla usando el código 
+                    // recupeado para mostrar la información contenida en el 
+                    // array
+                    document.write(dato + ": " + persona[dato] + "<br />");
+                }
+
+            }
+
+            /**
+             * Actividad 3: Utilizando el array de la actividad 1, usa delete 
+             * para "borrar" sus elementos y comprueba que ahora tiene asignado 
+             * el valor undefined.
+             * @returns {undefined}
+             */
+            function actividad3()
+            {
+                // Definimos un array mixto usando la nomenclatura JSON
+                var persona = {
+                    "nombre": "Luis",
+                    "apellido1": "Cabrerizo",
+                    "apellido2": "Gómez",
+                    "edad": "37",
+                    "sexo": "H",
+                    "email": "aqklynvi@sharklasers.com"
+                };
+
+                // Iteramos por todos los valores del array mixto
+                for (var dato in persona)
+                {
+                    // Eliminamos el valor del array usando delete
+                    delete persona[dato];
+
+                    // Mostramos información en pantalla
+                    document.write(dato + ": " + persona[dato] + "<br />");
+                }
+            }
+
+            /***
+             * Actividad 4: En la actividad anterior se utilizó delete para 
+             * "borrar" elementos de un array. En Javascript también se utilzan 
+             * los métodos pop(), shift(), splice(). Compara estos 3 métodos e 
+             * indica como funcionan, indicando si podemos borrar uno o más 
+             * elementos al invocarlos una vez y de que posiciones se eliminan 
+             * dichos elementos del array.
+             * @returns {undefined}
+             */
+            function actividad4()
+            {
+                // Creamos una tabla para mostrar la relación entre los tres comandos
+                document.write("<table style='border-collapse: collapse;border: 1px solid black'>");
+                document.write("<thead>");
+                document.write("<tr>");
+                document.write("<th style='border: 1px solid black;text-align: center;'></th>");
+                document.write("<th style='border: 1px solid black;text-align: center;'>pop()</th>");
+                document.write("<th style='border: 1px solid black;text-align: center;'>shift()</th>");
+                document.write("<th style='border: 1px solid black;text-align: center;'>splice(a, b)</th>");
+                document.write("</tr>");
+                document.write("</thead>");
+                document.write("<tbody>");
+                document.write("<tr>");
+                document.write("<td style='border: 1px solid black'>Funcionamiento</td>");
+                document.write("<td style='border: 1px solid black'>Elimina el último elemento de un array y lo devuelve</td>");
+                document.write("<td style='border: 1px solid black'>Elimina el primer elemento de un array, y los devuelve</td>");
+                document.write("<td style='border: 1px solid black'>Selecciona una parte de un array y devuelve el nuevo array</td>");
+                document.write("</tr>");
+                document.write("<tr>");
+                document.write("<td style='border: 1px solid black'>Nº de elementos que borra</td>");
+                document.write("<td style='border: 1px solid black'>Uno</td>");
+                document.write("<td style='border: 1px solid black'>Uno</td>");
+                document.write("<td style='border: 1px solid black'>Varios</td>");
+                document.write("</tr>");
+                document.write("<tr>");
+                document.write("<td style='border: 1px solid black'>Posiciones que elimina</td>");
+                document.write("<td style='border: 1px solid black'>Última</td>");
+                document.write("<td style='border: 1px solid black'>Primera</td>");
+                document.write("<td style='border: 1px solid black'>A partir de la posición a, tantos elementos como indique b</td>");
+                document.write("</tr>");
+                document.write("</tbody>");
+                document.write("</table>");
+                document.write("<br />");
+            }
+
+            /**
+             * Crea uno o varios programas en Javascript que ilustren el 
+             * funcionamiento de los métodos pop(), shift(), splice() junto al 
+             * operador delete, para ello, define el siguiente array 
+             * "var pais = ['Mexico', 'España', 'Argentina', 'Chile', 'Colombia', 
+             * 'Venezuela', 'Perú', 'Costa Rica'];", 
+             * ¿Qué longitud tiene el array en cada caso tras borrar todos los 
+             * elementos?
+             * @returns {undefined}
+             */
+            function actividad5()
+            {
+
+                // Creamos un array
+                var paises = ['Mexico', 'España', 'Argentina', 'Chile', 'Colombia', 'Venezuela', 'Perú', 'Costa Rica'];
+
+                // Mostramos información al usuario de las pruebas que vamos a hacer
+                document.write("Hemos creado un array paises que tiene el siguiente contenido: ");
+                document.write("<br />");
+
+                // Mostramos la representación del array al usuario ayudados de 
+                // la funcion arrayacadena
+                document.write(arrayacadena(paises, "paises"));
+                document.write("<br />");
+                document.write("El tamaño del array es: " + paises.length);
+                document.write("<br />");
+                document.write("<br />");
+
+                // Informamos al usuario de nuestro siguiente ejemplo
+                document.write("Quitamos el último elemento usando pop: ");
+                document.write("<br />");
+                document.write("var elemento = paises.pop();");
+                document.write("<br />");
+                document.write("<br />");
+
+                // Usamos el método pop del array paises y guardamos el 
+                // resultado en la variable elemento
+                var elemento = paises.pop();
+
+                // Mostramos al usuario como queda el array y el valor de la 
+                // variable elemento
+                document.write("El array quedaria así: ");
+                document.write("<br />");
+                document.write(arrayacadena(paises, "paises"));
+                document.write("<br />");
+                document.write("El tamaño del array es: " + paises.length);
+                document.write("<br />");
+                document.write("Y la variable elemento contendría el siguiente valor: " + elemento);
+                document.write("<br />");
+                document.write("<br />");
+                document.write("<br />");
+
+                // Informamos al usuario de nuestro siguiente ejemplo
+                document.write("Quitamos el primer elemento usando shift ");
+                document.write("<br />");
+                document.write("var elemento = paises.shift();");
+                document.write("<br />");
+                document.write("<br />");
+
+                // Usamos el método shift del array paises y guardamos el 
+                // resultado en la variable elemento
+                var elemento = paises.shift();
+
+                // Mostramos al usuario como queda el array y el valor de la 
+                // variable elemento
+                document.write("El array quedaria así: ");
+                document.write("<br />");
+                document.write(arrayacadena(paises, "paises"));
+                document.write("<br />");
+                document.write("El tamaño del array es: " + paises.length);
+                document.write("<br />");
+                document.write("Y la variable elemento contendría el siguiente valor: " + elemento);
+                document.write("<br />");
+                document.write("<br />");
+                document.write("<br />");
+
+                // Informamos al usuario de nuestro siguiente ejemplo
+                document.write("Quitamos el último elemento usando splice ");
+                document.write("<br />");
+                document.write("var elemento = paises.splice(2, 3);");
+                document.write("<br />");
+                document.write("Eliminaremos 3 elementos del array a partir de la posición 2");
+                document.write("<br />");
+                document.write("<br />");
+
+                // Usamos el método splice del array paises y guardamos el 
+                // resultado en la variable elemento
+                var elemento = paises.splice(2, 3);
+
+                // Mostramos al usuario como queda el array y el valor de la 
+                // variable elemento
+                document.write("El array quedaria así: ");
+                document.write("<br />");
+                document.write(arrayacadena(paises, "paises"));
+                document.write("<br />");
+                document.write("El tamaño del array es: " + paises.length);
+                document.write("<br />");
+                document.write("Y la variable elemento contendría el siguiente valor: " + elemento);
+                document.write("<br />");
+                document.write("<br />");
+                document.write("<br />");
+
+
+                // Decimos al usuario que vamos a hacer a continuación
+                document.write("A continuación vamos a borrar el resto de \n\
+                posiciones del array usando el método delete");
+                document.write("<br />");
+
+                // Iteramos por todos los elementos que queden en el array
+                for (var i = 0; i < paises.length; i++)
+                {
+                    // Usamos delete con cada uno de ellos
+                    delete paises[i];
+                    document.write("delete paises[" + i + "]; <br />");
+                }
+
+                // Mostramos el tamaño del array que no ha cambiado
+                document.write("El tamaño del array es: " + paises.length);
+                document.write("<br />");
+
+                // Mostramos el usuario el contenido del array
+                document.write("El tamaño del array no ha cambiado, pero su contenido si: ");
+                document.write("<br />");
+                document.write(arrayacadena(paises, "paises"));
+                document.write("<br />");
+                document.write("<br />");
+                document.write("<br />");
+            }
+
+
+            /**
+             * Actividad 6: Compara los metodos 3 métodos push(), unshift() y 
+             * splice() para insertar elementos en un array, indicando como 
+             * funcionan, si podemos insertar uno o más elementos al 
+             * invocarlos una vez y en qué posiciones se insertan dichos 
+             * elementos del array.
+             * @returns {undefined}
+             */
+            function actividad6()
+            {
+
+                // Creamos una tabla para mostrar la relación entre los tres comandos
+                document.write("<table style='border-collapse: collapse;border: 1px solid black'>");
+                document.write("<thead>");
+                document.write("<tr>");
+                document.write("<th style='border: 1px solid black;text-align: center;'></th>");
+                document.write("<th style='border: 1px solid black;text-align: center;'>push()</th>");
+                document.write("<th style='border: 1px solid black;text-align: center;'>unshift()</th>");
+                document.write("<th style='border: 1px solid black;text-align: center;'>splice(a, b, nuevo1,...,nuevox)</th>");
+                document.write("</tr>");
+                document.write("</thead>");
+                document.write("<tbody>");
+                document.write("<tr>");
+                document.write("<td style='border: 1px solid black'>Funcionamiento</td>");
+                document.write("<td style='border: 1px solid black'>Añade nuevos elementos al final de un array y devuelve la nueva longitud</td>");
+                document.write("<td style='border: 1px solid black'>Añade nuevos elementos al comienzo de un array, y devuelve la nueva longitud</td>");
+                document.write("<td style='border: 1px solid black'>Añade o elimina elementos al array</td>");
+                document.write("</tr>");
+                document.write("<tr>");
+                document.write("<td style='border: 1px solid black'>Nº de elementos que añade</td>");
+                document.write("<td style='border: 1px solid black'>Varios</td>");
+                document.write("<td style='border: 1px solid black'>Varios</td>");
+                document.write("<td style='border: 1px solid black'>Varios</td>");
+                document.write("</tr>");
+                document.write("<tr>");
+                document.write("<td style='border: 1px solid black'>Posiciones donde añade elementos</td>");
+                document.write("<td style='border: 1px solid black'>Al final del array</td>");
+                document.write("<td style='border: 1px solid black'>Al prinipio del array</td>");
+                document.write("<td style='border: 1px solid black'>A partir de la posición a</td>");
+                document.write("</tr>");
+                document.write("</tbody>");
+                document.write("</table>");
+                document.write("<br />");
+            }
+
+            /**
+             * Actividad 7: Crea uno o varios programas en Javascript que 
+             * ilustren el funcionamiento de los métodos push(), unshift() y 
+             * splice(), para ello, define el siguiente array 
+             * "var pais = new Array();", despues inserta los elementos 
+             * siguientes: 'Mexico', 'España', 'Argentina', 'Chile', 'Colombia', 
+             * 'Venezuela', 'Perú' y 'Costa Rica'.
+             * @returns {undefined}
+             */
+            function actividad7()
+            {
+
+                // Creamos un array
+                var paises = ['Mexico', 'España', 'Argentina', 'Chile', 'Colombia', 'Venezuela', 'Perú', 'Costa Rica'];
+
+                // Mostramos información al usuario de las pruebas que vamos a hacer
+                document.write("Hemos creado un array paises que tiene el siguiente contenido: ");
+                document.write("<br />");
+
+                // Mostramos la representación del array al usuario ayudados de 
+                // la funcion arrayacadena
+                document.write(arrayacadena(paises, "paises"));
+                document.write("<br />");
+                document.write("El tamaño del array es: " + paises.length);
+                document.write("<br />");
+                document.write("<br />");
+
+                // Informamos al usuario de nuestro siguiente ejemplo
+                document.write("Añadimos un nuevo elemento al final del array usando push ");
+                document.write("<br />");
+                document.write("paises.push('Guatemala');");
+                document.write("<br />");
+                document.write("<br />");
+
+                // Usamos el método push del array paises 
+                paises.push("Guatemala");
+
+                // Mostramos al usuario como queda el array y el valor de la 
+                // variable elemento
+                document.write("El array quedaria así: ");
+                document.write("<br />");
+                document.write(arrayacadena(paises, "paises"));
+                document.write("<br />");
+                document.write("El tamaño del array es: " + paises.length);
+                document.write("<br />");
+                document.write("<br />");
+                document.write("<br />");
+
+                // Informamos al usuario de nuestro siguiente ejemplo
+                document.write("Añadimos un nuevo elemento al principio del array usando unshift ");
+                document.write("<br />");
+                document.write("paises.unshift('Bolivia');");
+                document.write("<br />");
+                document.write("<br />");
+
+                // Usamos el método shift del array paises y guardamos el 
+                // resultado en la variable elemento
+                paises.unshift("Bolivia");
+
+                // Mostramos al usuario como queda el array y el valor de la 
+                // variable elemento
+                document.write("El array quedaria así: ");
+                document.write("<br />");
+                document.write(arrayacadena(paises, "paises"));
+                document.write("<br />");
+                document.write("El tamaño del array es: " + paises.length);
+                document.write("<br />");
+                document.write("<br />");
+                document.write("<br />");
+
+                // Informamos al usuario de nuestro siguiente ejemplo
+                document.write("Añadimos elementos usando splice ");
+                document.write("<br />");
+                document.write("paises.splice(3, 0, 'Surinam', 'Ecuador');");
+                document.write("<br />");
+                document.write("Añadiremos 2 elementos al array insertandolos a partir de la posición 3");
+                document.write("<br />");
+                document.write("<br />");
+
+                // Usamos el método splice del array paises y guardamos el 
+                // resultado en la variable elemento
+                paises.splice(3, 0, "Surinam", "Ecuador");
+
+                // Mostramos al usuario como queda el array y el valor de la 
+                // variable elemento
+                document.write("El array quedaria así: ");
+                document.write("<br />");
+                document.write(arrayacadena(paises, "paises"));
+                document.write("<br />");
+                document.write("El tamaño del array es: " + paises.length);
+                document.write("<br />");
+                document.write("Y la variable elemento contendría el siguiente valor: " + elemento);
+                document.write("<br />");
+                document.write("<br />");
+                document.write("<br />");
+
+
+                // Decimos al usuario que vamos a hacer a continuación
+                document.write("A continuación vamos a borrar el resto de \n\
+                posiciones del array usando el método delete");
+                document.write("<br />");
+
+                // Iteramos por todos los elementos que queden en el array
+                for (var i = 0; i < paises.length; i++)
+                {
+                    // Usamos delete con cada uno de ellos
+                    delete paises[i];
+                    document.write("delete paises[" + i + "] <br />");
+                }
+
+                // Mostramos el tamaño del array que no ha cambiado
+                document.write("El tamaño del array es: " + paises.length);
+                document.write("<br />");
+
+                // Mostramos el usuario el contenido del array
+                document.write("El tamaño del array no ha cambiado, pero su contenido si: ");
+                document.write("<br />");
+                document.write("<br />");
+                document.write("<br />");
+
+            }
+
+            /**
+             * Actividad 8: Define el siguiente array 
+             * "var pais = ['Mexico', 'España', 'Argentina', 'Chile', 'Colombia', 
+             * 'Venezuela', 'Perú', 'Costa Rica'];", muestra su contenido por 
+             * pantalla, después usando el metodo sort(), ordena su contenido y 
+             * vuelve a mostrarlo ya ordenado.
+             * @returns {undefined}
+             */
+            function actividad8()
+            {
+                // Definimos el array
+                var pais = ['Mexico', 'España', 'Argentina', 'Chile', 'Colombia', 'Venezuela', 'Perú', 'Costa Rica'];
+
+                // Mostramos al usuaio el array sin ordenar
+                document.write("El array sin ordenar es: ");
+                document.write("<br />");
+                document.write(arrayacadena(pais, "pais"));
+                document.write("<br />");
+                document.write("<br />");
+
+                // Mostramos al usuario el array ordenado usando el método sort
+                document.write("El array ordenado es: ");
+                document.write("<br />");
+                document.write(arrayacadena(pais.sort(), "pais"));
+            }
+
+            /**
+             * Actividad 9: Utilizando el array ordenado obtenido en la actividad 8, 
+             * define una variable llamada corte que almacene el resultado de 
+             * utilizar el metodo slice sobre el array pais de la siguiente 
+             * manera: "var corte = pais.slice(1, 4);", muestra el contenido 
+             * del nuevo array, y explica el funcionamiento de slice en este 
+             * ejemplo.
+             * @returns {undefined}
+             */
+            function actividad9()
+            {
+                // Definimos el array
+                var pais = ['Mexico', 'España', 'Argentina', 'Chile', 'Colombia', 'Venezuela', 'Perú', 'Costa Rica'].sort();
+
+                // Mostramos al usuario el array
+                document.write("El array es: ");
+                document.write("<br />");
+                document.write(arrayacadena(pais, "pais"));
+                document.write("<br />");
+                document.write("<br />");
+
+                // Mostramos al usuario que haremos a continuación
+                document.write("Realizamos el siguiete comando");
+                document.write("<br />");
+                document.write("var corte = pais.slice(1, 4);");
+                document.write("<br />");
+                document.write("<br />");
+
+                // Realizamos el comando con slice
+                var corte = pais.slice(1, 4);
+
+                // Mostramos al usuario el array resultante y explicamos el 
+                // funcionamiento del método slice
+                document.write("El array es: ");
+                document.write("<br />");
+                document.write(arrayacadena(pais, "pais"));
+                document.write("<br />");
+                document.write("El valor de la variable corte es: ");
+                document.write("<br />");
+                document.write(arrayacadena(corte, "corte"));
+                document.write("<br />");
+                document.write("Lo que realiza es método slice es que permite coger unos valores de un array desde el valor del primer parámetro hasta el valor anterior al valor segundo parámetro");
+                document.write("<br />");
+                document.write("En este ejemplo almacenaría en la variable corte un array con los valores del array paises comprendidos entre la posición 1 y la 3, ambos incluidos");
+                document.write("<br />");
+            }
+
+
+            /**
+             * Actividad 10: Amplía el ejemplo anterior y defien un tercer array 
+             * paralelo con las edades de cada persona, para ello define el array 
+             * llamado ages y añade edades inventadas por ti usando el método splice(). 
+             * Por último, recorre los 3 arrays mostrando la información asociada 
+             * a cada persona según una misma posición del índice.
+             * @returns {undefined}
+             */
+            function actividad10()
+            {
+                // El array original
+                var coNames = new Array();
+
+                // Añadimos valores
+                coNames[0] = "Paul Smith (President)";
+                coNames[1] = "Laura Stevens (Vice President)";
+                coNames[2] = "Mary Larsen (General Manager)";
+                coNames[3] = "Bob Lark (Sales Manager)";
+                coNames[4] = "Michael Storm (Technical Manager)";
+                coNames[5] = "Terri Storm (Office Manager)";
+
+                // Nuevo array paralelo
+                var eMail = new Array();
+                eMail[0] = "psmith@domain.com";
+                eMail[1] = "lstevens@domain.com";
+                eMail[2] = "mlarsen@domain.com";
+                eMail[3] = "blark@domain.com";
+                eMail[4] = "mstorm@domain.com";
+                eMail[5] = "tstorm@domain.com";
+
+                // Otro array paralelo
+                var ages = new Array();
+
+                // Añadimos nuevos valores al array usando splice
+                ages.splice(0, 0, "45", "32", "19", "56", "37", "18");
+
+                // Recorremos el array mostrando los valores enlazados al usuario
+                for (var i = 0; i < 6; i++) {
+                    document.write(i + 1 + ". " + coNames[i] + ", " + eMail[i] + ", Edad: " + ages[i] + "<br>");
+                }
+            }
+
+
+            /**
+             * Actividad 11: Amplía el ejemplo anterior, para crear una tercera 
+             * dimensión en el array, donde se inserten direcciones de email, 
+             * de la siguiente forma "datos[x][3]= new Array();"
+             * @returns {undefined}
+             */
+            function actividad11()
+            {
+                // Creamos el array datos
+                var datos = new Array();
+
+                // Le añadimos valores y como último valor, añadimos un array 
+                // que contedrá las direcciónes de correo
+                datos[0] = new Array("Cristina", "Seguridad", 24, new Array());
+                datos[1] = new Array("Catalina", "Bases de Datos", 17, new Array());
+                datos[2] = new Array("Vieites", "Sistemas Informáticos", 28, new Array());
+                datos[3] = new Array("Benjamin", "Redes", 26, new Array());
+
+                // Añadimos algunas direcciones de correo usando splice
+                datos[0][3].splice(0, 0, "Cristina@gmail.com", "Kristichula@yahoo.com");
+                datos[1][3].splice(0, 0, "Catalina@gmail.com", "Katy18@hotmail.com");
+                datos[2][3].splice(0, 0, "Vieites@aol.com");
+                datos[3][3].splice(0, 0, "Benjamin@gmail.com", "Benji@hotmail.com", "BenjaSpam@gmx.net");
+
+                // Iteramos por el array de datos mostrando los resultados al usuario
+                for (i = 0; i < datos.length; i++)
+                {
+                    // Concatenamos los valores del array para crear una cande. 
+                    // Para las direcciones usamos toString para recuperar los 
+                    // datos y los formateamos un poco con ayuda de la función 
+                    // replace
+                    document.write("<br/>" + datos[i][0] + " del módulo de " + datos[i][1] + ", tiene " + datos[i][2] + " alumnos en clase. Sus correos son: " + datos[i][3].toString().replace(/,/g, ", "));
+                }
+
+            }
+
+
+        </script>
+    </head>
+    <body >
+        <div style="display: block; float:left"><input type="button" title="Actividad 1" value="Actividad 1" onclick="actividad1();"/></div>
+        <div style="display: block; float:left">&nbsp;</div>
+        <div style="display: block; float:left"><input type="button" title="Actividad 2" value="Actividad 2" onclick="actividad2();"/></div>
+        <div style="display: block; float:left">&nbsp;</div>
+        <div style="display: block; float:left"><input type="button" title="Actividad 3" value="Actividad 3" onclick="actividad3();"/></div>
+        <div style="display: block; float:left">&nbsp;</div>
+        <div style="display: block; float:left"><input type="button" title="Actividad 4" value="Actividad 4" onclick="actividad4();"/></div>
+        <div style="display: block; float:left">&nbsp;</div>
+        <div style="display: block; float:left"><input type="button" title="Actividad 5" value="Actividad 5" onclick="actividad5();"/></div>        
+        <div style="display: block; float:left">&nbsp;</div>
+        <div style="display: block; float:left"><input type="button" title="Actividad 6" value="Actividad 6" onclick="actividad6();"/></div>        
+        <div style="display: block; float:left">&nbsp;</div>
+        <div style="display: block; float:left"><input type="button" title="Actividad 7" value="Actividad 7" onclick="actividad7();"/></div>        
+        <div style="display: block; float:left">&nbsp;</div>
+        <div style="display: block; float:left"><input type="button" title="Actividad 8" value="Actividad 8" onclick="actividad8();"/></div>        
+        <div style="display: block; float:left">&nbsp;</div>
+        <div style="display: block; float:left"><input type="button" title="Actividad 9" value="Actividad 9" onclick="actividad9();"/></div>        
+        <div style="display: block; float:left">&nbsp;</div>
+        <div style="display: block; float:left"><input type="button" title="Actividad 10" value="Actividad 10" onclick="actividad10();"/></div>        
+        <div style="display: block; float:left">&nbsp;</div>
+        <div style="display: block; float:left"><input type="button" title="Actividad 11" value="Actividad 11" onclick="actividad11();"/></div>        
+    </body>
+</html>
