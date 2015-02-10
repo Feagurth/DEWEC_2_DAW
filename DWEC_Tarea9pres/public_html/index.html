@@ -28,8 +28,99 @@ del document. La función se ejecutará con el evento onsubmit.
         <title>DWEC_Tarea9pres</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+            function mostrarValores()
+            {
+                var forms = document.forms[];
+
+                for(i=0; i < forms.length; i++)
+                {
+                    alert(forms[i].toString());
+                }
+                
+                
+                
+                
+                return false;
+                
+            }
+        </script>
     </head>
     <body>
-        <div>TODO write content</div>
+        <form id="Comida" onsubmit="return mostrarValores();">
+            <div>
+                <h3>¿Ha comido pescado alguna vez?</h3>
+                <input type="radio" value="si" name="pescado" id="pescado_si"/> SI
+                <input type="radio" value="no" name="pescado" id="pescado_no"/> NO
+                <input type="radio" value="nsnc" name="pescado" id="pescado_nsnc"/> NS/NC
+            </div>
+            <div>                
+                <h3>¿Suele comer?</h3>
+                <input type="checkbox" value="Carne" name="comida" id="comida_carne"/> Carne
+                <input type="checkbox" value="Pescado" name="comida" id="comida_pescado"/> Pescado
+                <input type="checkbox" value="Verdras" name="comida" id="comida_verdura"/> Verduras
+            </div>
+            <div>
+                <h3>Seleccione su comida favorita</h3>
+                <select id="tipopescado" name="tipopescado">
+                    <option value="Mero">Mero</option>
+                    <option value="Lubina">Lubina</option>
+                    <option value="Carpa">Carpa</option>
+                    <option value="Arenques">Arenques</option>
+                </select>                
+                <select id="tipocarne" name="tipocarne">
+                    <option value="Ternera">Ternera</option>
+                    <option value="Cabra">Cabra</option>
+                    <option value="Cerdo">Cerdo</option>
+                    <option value="Jabali">Jabali</option>
+                </select>                
+                <select id="tipoverdura" name="tipoverdura">
+                    <option value="Apio">Apio</option>
+                    <option value="Puerros">Puerros</option>
+                    <option value="Acelgas">Acelgas</option>
+                    <option value="Lechuga">Lechuga</option>
+                </select>                                
+            </div>
+            <div>
+                <br/>
+                <input type="submit" value="Enviar"/>
+            </div>
+            
+        </form>
+        <hr/>
+        <form id="caballos" onsubmit="return mostrarValores();">
+            <div>
+                <h3>¿Ha visto anterioremente carreras de caballos?</h3>
+                <input type="radio" value="si" name="caballos" id="caballos_si"/> SI
+                <input type="radio" value="no" name="caballos" id="caballos_no"/> NO
+                <input type="radio" value="nsnc" name="caballos" id="caballos_nsnc"/> NS/NC
+            </div>
+            <div>                
+                <h3>¿Donde las vió con anterioridad?</h3>
+                <input type="checkbox" value="Hipodroma" name="visioncarrera" id="visioncarrera_hipodromo"/> Hipodromo
+                <input type="checkbox" value="Television" name="visioncarrera" id="visioncarrera_television"/> Television
+            </div>
+            <div>
+                <h3>Si las vió en el hipodromo, ¿apostó?</h3>
+                <select id="apuestas" name="apuestas">
+                    <option value="no">No</option>
+                    <option value="5">Más de 5€</option>
+                    <option value="10">Más de 10€</option>
+                    <option value="15">Más de 15€</option>
+                </select>                
+            </div>
+            <div>
+                <h3>Si apostó, ¿ganó?</h3>
+                <select id="ganar" name="ganar">
+                    <option value="si">Si</option>
+                    <option value="no">No</option>
+                </select>                
+            </div>
+            <div>
+                <br/>
+                <input type="submit" value="Enviar"/>
+            </div>
+        </form>
+
     </body>
 </html>
