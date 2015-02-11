@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
 Copyright (C) 2015 Luis Cabrerizo Gómez
 
@@ -23,31 +23,19 @@ con varios alert las propiedades value y checked de los elements del array forms
 del document. La función se ejecutará con el evento onsubmit.
 -->
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
     <head>
         <title>DWEC_Tarea9pres</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script type="text/javascript">
-            function mostrarValores()
-            {
-                var forms = document.forms[];
-
-                for(i=0; i < forms.length; i++)
-                {
-                    alert(forms[i].toString());
-                }
-                
-                
-                
-                
-                return false;
-                
-            }
-        </script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <script src="scripts.js" type="text/javascript"></script>
     </head>
-    <body>
-        <form id="Comida" onsubmit="return mostrarValores();">
+    <body>        
+        <form id="Comida" action="index.html" onsubmit="return mostrarValores();">
+            <div>
+                <h3>Introduzca su nombre</h3>
+                <input type="text" name="nombre" id="nombre" maxlength="30" />
+            </div>
             <div>
                 <h3>¿Ha comido pescado alguna vez?</h3>
                 <input type="radio" value="si" name="pescado" id="pescado_si"/> SI
@@ -58,7 +46,7 @@ del document. La función se ejecutará con el evento onsubmit.
                 <h3>¿Suele comer?</h3>
                 <input type="checkbox" value="Carne" name="comida" id="comida_carne"/> Carne
                 <input type="checkbox" value="Pescado" name="comida" id="comida_pescado"/> Pescado
-                <input type="checkbox" value="Verdras" name="comida" id="comida_verdura"/> Verduras
+                <input type="checkbox" value="Verduras" name="comida" id="comida_verdura"/> Verduras
             </div>
             <div>
                 <h3>Seleccione su comida favorita</h3>
@@ -85,10 +73,15 @@ del document. La función se ejecutará con el evento onsubmit.
                 <br/>
                 <input type="submit" value="Enviar"/>
             </div>
-            
+
         </form>
         <hr/>
-        <form id="caballos" onsubmit="return mostrarValores();">
+        <form id="caballos" action="index.html" onsubmit="return mostrarValores();">
+            <div>
+                <h3>Introduzca su edad</h3>
+                <input type="text" name="edad" id="edad" maxlength="30" />
+            </div>
+
             <div>
                 <h3>¿Ha visto anterioremente carreras de caballos?</h3>
                 <input type="radio" value="si" name="caballos" id="caballos_si"/> SI
@@ -97,7 +90,7 @@ del document. La función se ejecutará con el evento onsubmit.
             </div>
             <div>                
                 <h3>¿Donde las vió con anterioridad?</h3>
-                <input type="checkbox" value="Hipodroma" name="visioncarrera" id="visioncarrera_hipodromo"/> Hipodromo
+                <input type="checkbox" value="Hipodromo" name="visioncarrera" id="visioncarrera_hipodromo"/> Hipodromo
                 <input type="checkbox" value="Television" name="visioncarrera" id="visioncarrera_television"/> Television
             </div>
             <div>
@@ -121,6 +114,5 @@ del document. La función se ejecutará con el evento onsubmit.
                 <input type="submit" value="Enviar"/>
             </div>
         </form>
-
     </body>
 </html>
