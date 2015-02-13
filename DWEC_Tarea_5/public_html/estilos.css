@@ -1,0 +1,72 @@
+/*
+Copyright (C) 2015 Luis Cabrerizo Gómez
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+/* 
+    Created on : 12-feb-2015, 19:41:49
+    Author     : Luis Cabrerizo Gómez
+*/
+
+label{
+    width: 150px;
+    float:left;
+    margin-bottom:5px;     
+}
+input,select {
+    width:150px;
+    float:left;
+    margin-bottom:5px;
+}
+
+fieldset{
+    background:#66CCCC;
+    width:350px;
+    border: thick solid #306;
+}
+
+legend{
+    border-top-width: medium;
+    border-right-width: medium;
+    border-bottom-width: medium;
+    border-left-width: medium;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    background-color: #FFF;     
+}
+
+#mensajes{
+    float: left;
+    background:#33FF33;
+    width: 325px;
+}
+
+#errores{
+    float: left;
+    background:#FF6633;
+    width: 325px;
+}
+
+#intentos{
+    float: left;
+    background:#CCFF33;
+    width: 325px;
+}
+
+.error{
+    border: solid 2px #FF0000;
+
+}

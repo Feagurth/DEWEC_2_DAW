@@ -31,7 +31,7 @@ del document. La función se ejecutará con el evento onsubmit.
         <script src="scripts.js" type="text/javascript"></script>
     </head>
     <body>        
-        <form id="Comida" action="index.html" onsubmit="return mostrarValores();">
+        <form id="comida" action="index.html" onsubmit="return mostrarValores();">
             <div>
                 <h3>Introduzca su nombre</h3>
                 <input type="text" name="nombre" id="nombre" maxlength="30" />
@@ -71,12 +71,12 @@ del document. La función se ejecutará con el evento onsubmit.
             </div>
             <div>
                 <br/>
-                <input type="submit" value="Enviar"/>
+                <input id="envio1" type="button" value="Enviar"/>
             </div>
 
         </form>
         <hr/>
-        <form id="caballos" action="index.html" onsubmit="return mostrarValores();">
+        <form id="caballos" action="index.html">
             <div>
                 <h3>Introduzca su edad</h3>
                 <input type="text" name="edad" id="edad" maxlength="30" />
@@ -111,7 +111,7 @@ del document. La función se ejecutará con el evento onsubmit.
             </div>
             <div>
                 <br/>
-                <input type="submit" value="Enviar"/>
+                <input id="envio2" type="button" value="Enviar"/>
             </div>
         </form>
     </body>

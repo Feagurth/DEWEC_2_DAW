@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+Copyright (C) 2015 Luis Cabrerizo Gómez
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>DWEC05 - Solución Tarea</title>
+        <script src="DWEC05-SOLTAREA.js" type="text/javascript" ></script>
+        <link rel="stylesheet" type="text/css" href="estilos.css" />
+    </head>
+    <body>
+        <fieldset>
+            <legend>DWEC05 - Solución Tarea</legend>
+            <form name="formulario" id="formulario" action="http://www.google.es" method="get">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" id="nombre" />
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" name="apellidos" id="apellidos" />
+                <label for="edad">Edad:</label>
+                <input name="edad" type="text" id="edad" maxlength="3" />
+                <label for="nif">NIF:</label>
+                <input name="nif" type="text" id="nif" />
+                <label for="email">E-mail:</label>
+                <input name="email" type="text" id="email" />
+                <label for="provincia">Provincia:</label>
+                <select name="provincia" id="provincia">
+                    <option value="0" selected="selected">Seleccione Provincia</option>
+                    <option value="C">A Coruña</option>
+                    <option value="LU">Lugo</option>
+                    <option value="OU">Ourense</option>
+                    <option value="OU">Pontevedra</option>
+                </select>
+                <label for="fecha">Fecha Nacimiento:</label>
+                <input name="fecha" type="text" id="fecha" />
+                <label for="telefono">Teléfono:</label>
+                <input name="telefono" type="text" id="telefono" maxlength="9"/>
+                <label for="hora">Hora de visita:</label>
+                <input name="hora" type="text" id="hora" />
+                <input type="reset" name="limpiar" id="button" value="Limpiar" />
+                <input type="submit" name="enviar" id="enviar" value="Enviar" />
+            </form> 
+            <div id="errores"></div>
+            <div id="intentos"></div>
+        </fieldset>
+    </body>
+</html>
