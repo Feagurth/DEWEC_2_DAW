@@ -19,24 +19,15 @@
 window.onload = asignarEventos;
 
 
-
+/**
+ * Función que nos permite asignar los eventos del formulario
+ * @returns {undefined}
+ */
 function asignarEventos()
 {
-    document.getElementById("envio1").addEventListener('click',enviar, false);
-    document.getElementById("envio2").addEventListener('click',enviar, false);
     document.getElementById("comida").addEventListener('submit',mostrarValores, true);
     document.getElementById("caballos").addEventListener('submit',mostrarValores, true);
 }
-
-
-function enviar()
-{
-    this.disabled = true;
-    this.value = "Enviando...";
-    this.form.submit();
-}
-
-
 
 /**
  * Función que sirve para recorrer los elementos de un array y 
@@ -45,6 +36,9 @@ function enviar()
  */
 function mostrarValores()
 {
+    botonesSubmit = this.find('[input[type=submit]');
+    
+    
     // Recuperamos y almacenamos el array que contiene los 
     // formularios del documento
     var formularios = document.forms;
