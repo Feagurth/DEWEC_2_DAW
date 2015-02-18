@@ -25,9 +25,10 @@ window.onload = asignarEventos;
  */
 function asignarEventos()
 {
-    document.getElementById("comida").addEventListener('submit',mostrarValores, true);
-    document.getElementById("caballos").addEventListener('submit',mostrarValores, true);
+    document.getElementById("comida").addEventListener('submit', mostrarValores, true);
+    document.getElementById("caballos").addEventListener('submit', mostrarValores, true);
 }
+
 
 /**
  * Función que sirve para recorrer los elementos de un array y 
@@ -36,9 +37,21 @@ function asignarEventos()
  */
 function mostrarValores()
 {
-    botonesSubmit = this.find('[input[type=submit]');
-    
-    
+
+    // Recorremos todos los elementos que conforman el formulario enviado
+    for (var i = 0; i < this.elements.length; i++)
+    {
+        // Para cada uno de ellos verficiamos si su tipo es submit
+        if (this.elements[i].type === 'submit')
+        {
+            // De ser así, cambiamos el valor del texto
+            this.elements[i].value = 'Enviando...';
+
+            // Y deshabilitamos el elemento
+            this.elements[i].disabled = true;
+        }
+    }
+
     // Recuperamos y almacenamos el array que contiene los 
     // formularios del documento
     var formularios = document.forms;
@@ -46,6 +59,7 @@ function mostrarValores()
     // Iteramos por los formularios
     for (var i = 0; i < formularios.length; i++)
     {
+
         // Definimos varias variables para almacenar la información 
         // de los diversos controles y los inicalizamos adecuadamente
         var seleccion = "En el formulario " + i + " el usuario seleccionó: ";
@@ -132,7 +146,7 @@ function mostrarValores()
         // Usamos un mensaje emergente para mostrar la información al usuario
         alert(texto + "\n" + radiobuttons + "\n" + checkboxes + "\n" + comboboxes + "\n" + seleccion);
     }
-    
+
     // Devolvemos false para evitar el envío de la página
     return false;
 }
