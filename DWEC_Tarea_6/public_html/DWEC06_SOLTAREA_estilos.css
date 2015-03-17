@@ -1,0 +1,66 @@
+/*
+Copyright (C) 2015 Luis Cabrerizo Gómez
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+/* 
+    Created on : 17-mar-2015, 18:34:46
+    Author     : Luis Cabrerizo Gómez
+*/
+
+.tablerodibujo {
+    border-top-width: thin;
+    border-right-width: thin;
+    border-bottom-width: thin;
+    border-left-width: thin;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    width: auto;
+}
+.tablerodibujo td {
+    width: 10px;
+    height:10px;
+    margin: 0px;
+    padding: 0px;
+}
+.color1 {
+    background-color: #FF0;
+}
+.color2 {
+    background-color: #0F0;
+}
+.color3 {
+    background-color: #000;
+}
+.color4 {
+    background-color: #F00;
+}
+.color5 {
+    background-color: #06C;
+}
+.color6 {
+    background-color: #FFF;
+}
+#paleta td{
+    width: 35px;
+    height: 20px;
+}
+#pincel{
+    text-align: center;
+}
+.seleccionado{
+    border: medium solid #939;
+}
