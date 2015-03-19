@@ -35,6 +35,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     height:10px;
     margin: 0px;
     padding: 0px;
+    border: 1px inset;
 }
 .color1 {
     background-color: #FF0;
