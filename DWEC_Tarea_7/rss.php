@@ -43,7 +43,7 @@ $usuario = "ajax";
 $password = "dwec";
 
 // Creamos la conexión al servidor.
-$conexion = mysql_connect($servidor, $usuario, $password) or die(mysql_error());
+$conexion = @mysql_connect($servidor, $usuario, $password) or die(mysql_error());
 mysql_query("SET NAMES 'utf8'", $conexion);
 
 // Seleccionar la base de datos en esa conexion.
