@@ -28,6 +28,8 @@ function iniciar()
     crearEvento(document.getElementById('campoSelect'), "change", cambioFeed);
     crearEvento(document.getElementById('anterior'), "click", anterior);
     crearEvento(document.getElementById('siguiente'), "click", siguiente);
+    crearEvento(document.getElementById('crearRSS'), "click", crearRSS);
+    crearEvento(document.getElementById('borrarRSS'), "click", borrarRSS);
 
     cargarCombo();
 }
@@ -126,19 +128,20 @@ function cambioFeed(id_feed)
 
             for (var clave in datos)
             {
-                resultado += "<h3><a href='" + datos[clave].url + "'>" + datos[clave].titulo + "</a></h3>";
+                resultado += "<h3><a href='" + datos[clave].url + "' target='_blank'>" + datos[clave].titulo + "</a></h3>";
                 resultado += "<p>" + datos[clave].descripcion + "</p>";
                 resultado += "<hr />";
             }
 
-            $("#titulo").text("Lector de Titulares RSS con AJAX y jQuery >>> Fuente RSS: " + $("select option:selected").text());
-
             $("#noticias").empty();
-            $("#noticias").append(resultado);
-
 
             $("select option:selected").removeAttr('selected');
             $("select option[value=" + id + "]").attr('selected', 'selected');
+
+            $("#titulo").text("Lector de Titulares RSS con AJAX y jQuery >>> Fuente RSS: " + $("select option:selected").text());
+
+            $("#noticias").append(resultado);
+
 
 
             $("#noticias").fadeIn();
@@ -164,6 +167,97 @@ function anterior()
 function siguiente()
 {
     cambioFeed(feeds[(feeds.indexOf(id)) + 1]);
+}
+
+
+function pedirURL()
+{
+    // Definimos dos variables, una para almacenar los datos del 
+    // usuaario y otra para controar las validaciones
+    var valor;
+    var salida;
+    do
+    {
+        // Pedimos el nombre al usuario
+        valor = window.prompt("Introduzca la url del feed");
+
+        // Creamos la expresión regular con la que validaremos los datos
+        regExp = /^(ht|f)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%\,\{\}\\|\\\^\[\]`]+)?$/;
+        
+        // Ejecutamos la validación y guardamos el resultado en una variable
+        salida = regExp.exec(valor);
+
+        // Comprobamos si la validación es correcta
+        if (!salida)
+        {
+            // Si no es correcta, mostramos un mensaje de aviso al 
+            // usuario
+            alert("Introduzca una url correcta");
+        }
+
+        // Iteramos mientras la validación no sea correcta
+    } while (!salida)
+
+    // Devolvemos el valor al usuario
+    return valor;
+}
+
+/**
+ * Función que nos permite validar un nombre usando expresiones regulares
+ * @returns {null|String}
+ */
+function pedirNombre()
+{
+    // Definimos dos variables, una para almacenar los datos del 
+    // nombre y otra para controlar las validaciones
+    var valor;
+    var salida;
+    do
+    {
+        // Pedimos el nombre al usuario
+        valor = window.prompt("Introduzca un nombre para el feed");
+
+        // Creamos la expresión regular con la que validaremos los datos
+        regExp = /^[a-zA-ZñÑáÁéÉíÍóÓúÚ ]+$/;
+        
+        // Ejecutamos la validación y guardamos el resultado en una variable
+        salida = regExp.exec(valor);
+
+        // Comprobamos si la validación es correcta
+        if (!salida)
+        {
+            // Si no es correcta, mostramos un mensaje de aviso al 
+            // usuario
+            alert("Introduzca un nombre correcto");
+        }
+
+        // Iteramos mientras la validación no sea correcta
+    } while (!salida)
+
+    // Devolvemos el valor al usuario
+    return valor;
+}
+
+
+function crearRSS()
+{
+
+    nombreRSS = pedirNombre();
+
+    feedRss = pedirURL();
+
+    if (nombreRSS !== null && feedRss !== null)
+    {
+
+        alert(nombreRSS + " - " + feedRss);
+    }
+
+
+}
+
+function borrarRSS()
+{
+
 }
 
 
