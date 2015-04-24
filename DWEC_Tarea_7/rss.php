@@ -3,7 +3,7 @@
 /*
   Esta página realiza las siguientes acciones según los parámetros recibidos:
 
-  Parámetros: accion=nueva&url=xxxxx
+  Parámetros: accion=nueva&titulo=xxx&url=xxxxx
   Acción: Insertará la url xxxxx en la tabla MySQL de RSS.
   Salida: Imprimirá el ID del último recurso añadido.
   Formato: Texto
@@ -90,6 +90,9 @@ switch ($_GET['accion']) {
         break;
 
     case 'recursosRSS':
+        
+        $datos = NULL;
+        
         $sql = sprintf("select * from rss order by id");
         $resultados = mysql_query($sql, $conexion) or die(mysql_error());
         while ($fila = mysql_fetch_array($resultados, MYSQL_ASSOC)) {
@@ -97,8 +100,14 @@ switch ($_GET['accion']) {
             // Cada fila del array coincidirá con el id del RSS.
             $datos[$fila['id']] = $fila;
         }
-        header('Content-Type: application/json');
-        echo json_encode($datos);
+        
+        if ($datos != NULL) {
+            header('Content-Type: application/json');
+            echo json_encode($datos);
+        } else {
+            echo "";
+        }
+
         break;
 
     case 'numRSS': // Devuelve el número total de RSS que tenemos en la base de datos.

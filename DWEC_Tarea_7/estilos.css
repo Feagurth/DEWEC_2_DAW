@@ -87,3 +87,6 @@ body{
     background-color: #89D393;
 }
 
+#controles .deshabilitado{
+    background-color: darkgrey;
+}
