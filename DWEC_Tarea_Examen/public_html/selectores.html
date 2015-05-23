@@ -1,0 +1,81 @@
+<!--
+Copyright (C) 2015 Luis Cabrerizo Gómez
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">   
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+    <head>
+        <title>Pruebas de Selectores</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="estilos.css" type="text/css" rel="stylesheet" />        
+        <script type="text/javascript" src="libs/MooTools-Core-1.5.1.js"></script>
+        <script type="text/javascript" src="selectores.js"></script>
+    </head>
+    <body id="cuerpo" class="selectores">
+        <div id="cabecera">
+            <p>Cabecera</p>            
+        </div>
+        <div id="botones">
+            <p>Selección simple</p>
+            <input type="button" name="ejemplo1" id="ejemplo1" value="Ejemplo1" title="Selección de elemento con id cuerpo"/>            
+            <input type="button" name="ejemplo2" id="ejemplo2" value="Ejemplo2" title="Selección de elemento p dentro del elemento con id cuerpo "/>            
+            <input type="button" name="ejemplo3" id="ejemplo3" value="Ejemplo3" title="Selección de elemento p con clase error dentro del elemento con id cuerpo"/>            
+            <input type="button" name="ejemplo4" id="ejemplo4" value="Ejemplo4" title="Selección de elemento con id pie dentro del elemento con id cuerpo"/>            
+        </div>
+
+        <div id="botones2">
+            <p>Selección múltiple</p>
+            <input type="button" name="ejemplo5" id="ejemplo5" value="Ejemplo5" title="Selección de elementos div múltiples"/>            
+            <input type="button" name="ejemplo6" id="ejemplo6" value="Ejemplo6" title="Selección de elemento multiples de distintos tipos"/>            
+            <input type="button" name="ejemplo7" id="ejemplo7" value="Ejemplo7" title="Selección de elementos p dentro del elemento con id cuerpo"/>            
+            <input type="button" name="ejemplo8" id="ejemplo8" value="Ejemplo8" title="Selección de elementos p  dentro del elemento con id pie"/>
+        </div>
+
+        <div id="botones3">
+            <p>Selectores basados en orden del elemento</p>
+            <input type="button" name="ejemplo9" id="ejemplo9" value="Ejemplo9" title="Selección de elementos div pares"/>            
+            <input type="button" name="ejemplo10" id="ejemplo10" value="Ejemplo10" title="Selección de elementos div impares"/>            
+        </div>
+        <div id="botones4">
+            <p>Selectores</p>
+            <input type="button" name="ejemplo11" id="ejemplo11" value="Ejemplo11" title="Selección de elemento con nombre igual a control2"/>            
+            <input type="button" name="ejemplo12" id="ejemplo12" value="Ejemplo12" title="Selección de elemento con nombre distinto a control2"/>            
+            <input type="button" name="ejemplo13" id="ejemplo13" value="Ejemplo13" title="Selección de elemento con nombre que empieza por control"/>            
+            <input type="button" name="ejemplo14" id="ejemplo14" value="Ejemplo14" title="Selección de elemento con nombre que termina por 2"/>            
+        </div>
+        <div id="botones5">
+            <p>Selector de padre de un elemento</p>
+            <input type="button" name="ejemplo15" id="ejemplo15" value="Ejemplo15" title="Selección de elemento padre del elemento con id pie2"/>            
+        </div>        
+        <div id="botones6">
+            <p>Asignación y lectura de propiedades</p>
+            <input type="button" name="ejemplo16" id="ejemplo16" value="Ejemplo16" title="Lectura de propiedad value del elemento con id control3"/>            
+            <input type="button" name="ejemplo17" id="ejemplo17" value="Ejemplo17" title="Asignación de propiedad value del elemento con id control3"/>            
+        </div>                
+        <div id="resultado">
+            <div id="controles">
+                <input name="control1" id="control1" type="text" value="Control1"/>
+                <input name="control2" id="control2" type="text" value="Control2"/>
+                <input name="control3" id="control3" type="text" value="Control3"/>
+                <input name="control4" id="control4" type="text" value="Control4"/>
+            </div>
+            <p class="error">Error!</p>                    
+        </div>
+        <div id="pie">
+            <p id="pie1">Pie de página</p>
+            <p id="pie2">Otro pie de página</p>
+        </div>
+    </body>
+</html>

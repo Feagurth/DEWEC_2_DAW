@@ -1,0 +1,69 @@
+<!--
+Copyright (C) 2015 Luis Cabrerizo Gómez
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">   
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+    <head>
+        <title>Pruebas de uso de objetos DOM</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="estilos.css" type="text/css" rel="stylesheet" />        
+        <script type="text/javascript" src="libs/MooTools-Core-1.5.1.js"></script>
+        <script type="text/javascript" src="usoDOM.js"></script>
+    </head>
+    <body id="cuerpo">
+        <input type="button" name="reiniciar" id="reiniciar" value="Reiniciar los elementos de la zona de resultados" title="Reinicia los elemetos de la zona de resultados a su estado inicial"/>            
+        <hr/>
+        <div id="botones">
+            <p>Creación e insercción de elementos</p>
+            <input type="button" name="ejemplo1" id="ejemplo1" value="Ejemplo1" title="Creación de un elemento h2 con texto y centrado al comiendo del div resultado"/>                        
+            <input type="button" name="ejemplo2" id="ejemplo2" value="Ejemplo2" title="Creación de un elemento h2 con texto y centrado al final del div resultado"/>                        
+            <input type="button" name="ejemplo3" id="ejemplo3" value="Ejemplo3" title="Creación de un elemento h2 con texto y centrado antes del div resultado"/>                        
+            <input type="button" name="ejemplo4" id="ejemplo4" value="Ejemplo4" title="Creación de un elemento h2 con texto y centrado despues comiendo del div resultado"/>                        
+        </div>
+        <hr/>        
+        <div id="botones2">
+            <p>Clonación de elementos</p>
+            <input type="button" name="ejemplo5" id="ejemplo5" value="Ejemplo5" title="Clonación del div contenedor con hijos incluidos"/>                        
+            <input type="button" name="ejemplo6" id="ejemplo6" value="Ejemplo6" title="Clonación del div contenedor sin  hijos incluidos"/>                        
+        </div>
+        <hr/>
+        <div id="botones3">
+            <p>Reemplazar elementos</p>
+            <input type="button" name="ejemplo7" id="ejemplo7" value="Ejemplo7" title="Reemplazamiento del div contenedor por uno generado"/>                        
+        </div>        
+        <hr/>        
+        <div id="botones4">
+            <p>Añadir texto a elementos</p>
+            <input type="button" name="ejemplo8" id="ejemplo8" value="Ejemplo8" title="Añadir texto al párrafo con id tituloResutados"/>                        
+        </div>        
+        <hr/>        
+        <div id="botones5">
+            <p>Eliminar elementos</p>            
+            <input type="button" name="ejemplo9" id="ejemplo9" value="Ejemplo9" title="Eliminar elementos usando empty()"/>                        
+            <input type="button" name="ejemplo10" id="ejemplo10" value="Ejemplo10" title="Eliminar elementos usando dispose()"/>                        
+            <input type="button" name="ejemplo11" id="ejemplo11" value="Ejemplo11" title="Eliminar elementos usando destroy()"/>                        
+        </div>        
+        <hr/>        
+        
+        <div id="contenedor">
+            <p id="tituloResultados">Zona de resultados</p>
+            <div id="resultado">
+
+            </div>
+        </div>
+        <hr/>
+    </body>
+</html>
