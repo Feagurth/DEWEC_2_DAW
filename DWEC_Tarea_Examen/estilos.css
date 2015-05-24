@@ -19,10 +19,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     Author     : Luis Cabrerizo Gómez
 */
 
-input[type='button']
+input[type='button'], 
+select
 {
-    margin: 0.10vmax;
-    
+    margin: 0.10vmax;    
 }
 
 body.selectores .error{
