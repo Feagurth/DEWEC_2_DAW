@@ -32,6 +32,8 @@ function inicio()
     $('ejemplo3').addEvent('click', ejemplo3);
     $('ejemplo4').addEvent('click', ejemplo4);
     $('ejemplo5').addEvent('click', ejemplo5);
+    $('ejemplo6').addEvent('click', ejemplo6);
+    $('ejemplo7').addEvent('click', ejemplo7);
 }
 
 
@@ -65,7 +67,7 @@ function reiniciar()
  * MooTools
  * 
  * En este ejemplo podemos ver como se asigna una función que muestra un 
- * mensaje emergente en el evento click del elemento con id pruebas
+ * mensaje emergente en el evento click del elemento con id cuadrado 
  * 
  * @returns {undefined}
  */
@@ -181,4 +183,49 @@ function ejemplo5()
 function alerta()
 {
     alert("Evento creado en click");
+}
+
+
+/**
+ * Función cuya finalidad es mostrar el funcionamiento del manejo de eventos en 
+ * MooTools
+ * 
+ * En este caso agregamos los eventos mouseenter y mouseleave y les asignamos 
+ * que cambien el color de fondo del elemento con id cudrado al entrar o 
+ * salir el ratón del elemento
+ *   
+ * @returns {undefined}
+ */
+function ejemplo6()
+{
+    // Seleccionamos el elemento con id cuadrado
+    $("cuadrado").addEvents({
+        // Añadimos el primer evento cuando el ratón entre en el elemento
+        mouseenter: function () {
+            this.setStyles({"background-color": "green"});
+        },
+        // Añadimos el segundo evento cuando el ratón salga del elemento
+        mouseleave: function () {
+            this.setStyles({"background-color": "blue"});
+        }
+    });
+}
+
+
+/**
+ * Función cuya finalidad es mostrar el funcionamiento del manejo de eventos en 
+ * MooTools
+ * 
+ * En este caso agregamos el evento mousewheel para que cambie el color del 
+ * fondo del elemento si movemos la rueda del ratón
+ *   
+ * @returns {undefined}
+ */
+function ejemplo7()
+{
+    // Seleccionamos el elemento con id cuadrado
+    $("cuadrado").addEvent("mousewheel", function () {
+        // Le asignamos que cambie el color del cuadro al mover la rueda del ratón
+        $("cuadrado").setStyles({"background-color": "chartreuse"});
+    });
 }
