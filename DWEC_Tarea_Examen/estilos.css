@@ -41,3 +41,12 @@ body.selectores p{
     padding: 0.5vmax;
     
 }
+
+.pruebas{
+    border: 0.15vmax solid black;
+    width: 10vmax;
+    height: 10vmax;
+    margin: 2vmax;
+    text-align: center;
+    line-height: 10vmax;
+}

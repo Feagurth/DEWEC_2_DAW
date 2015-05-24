@@ -1,5 +1,5 @@
 /* 
- * Copyright (C) 2015 Luis Caberizo Gómez
+ * Copyright (C) 2015 Luis Cabrerizo Gómez
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,6 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 window.addEvent('domready', inicio);
 
 /**
@@ -25,24 +26,11 @@ window.addEvent('domready', inicio);
 function inicio()
 {
     // Asignación de eventos a los botones
-    $('objetos').addEvent('click', objetos);
-    $('selectores').addEvent('click', selectores);
-    $('usoDOM').addEvent('click', usoDOM);
+    $('ejemplo1').addEvent('click', ejemplo1);
 }
 
-
-function objetos()
+function ejemplo1()
 {
-     window.location.href = "./objetos.html";
+    
+    
 }
-
-function selectores()
-{
-    window.location.href = "./selectores.html";
-}
-
-function usoDOM()
-{
-    window.location.href = "./usoDOM.html";
-}
-
